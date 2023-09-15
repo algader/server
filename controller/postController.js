@@ -133,12 +133,12 @@ exports.deleteMyPost = async (req, res) => {
         await models.Post_Image.destroy({
             where: {PostId: postId}
         });
-        // await models.Comment.destroy({
-        //     where: {PostId: postId}
-        // });
-        // await models.Like.destroy({
-        //     where: {PostId: postId}
-        // });
+        await models.Comment.destroy({
+            where: {PostId: postId}
+        });
+        await models.Like.destroy({
+            where: {PostId: postId}
+        });
         await models.Post.destroy({
             where: {id: postId, UserId: req.currentUser.id}
         })

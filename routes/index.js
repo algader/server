@@ -1,6 +1,8 @@
 const express = require('express');
 const userController = require('../controller/userController');
 const postController = require('../controller/postController');
+const commentController = require('../controller/commentController')
+const likeController = require('../controller/likeController')
 const isLoggedIn = require('../middlewares/authentication');
 const  {userValidationRules, updateUserValidationRules, postValidationRules, validate } = require('../middlewares/validtor');
 const upload = require('../middlewares/upload')
@@ -29,6 +31,16 @@ router.get('/my-posts', isLoggedIn, postController.getMyAllPosts);
 router.get('/my-posts/:postId', isLoggedIn, postController.getMyPost);
 router.put('/my-posts/:postId/update', postValidationRules(), validate, isLoggedIn, postController.updateMyPost);
 router.delete('/my-posts/delete', isLoggedIn, postController.deleteMyPost);
+
+// Comment Router
+
+router.post('/posts/:postId/create-comment', isLoggedIn, commentController.createComment);
+router.get('/posts/:postId/get-comments', isLoggedIn, commentController.getComment);
+
+// Like Router
+
+router.put('/posts/:postId/like', isLoggedIn, likeController.like);
+router.get('/posts/:postId/like-count', isLoggedIn, likeController.likeCount);
 
 module.exports = router;
 
