@@ -3,10 +3,11 @@ var expressValidator = require('express-validator');
 const express = require('express');
 const router = require('./routes');
 const cors = require('cors');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const bodyParser = require ('body-parser');
 const db = require('./models/database');
 const models = require('./models');
+
 
 const port = process.env.PORT || 5000;
 
@@ -19,7 +20,7 @@ const app = express();
         
 app.use(cors());
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 
 
