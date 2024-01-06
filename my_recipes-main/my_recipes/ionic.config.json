@@ -1,7 +1,0 @@
-{
-  "name": "my-recipe",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}

@@ -1,4 +1,5 @@
 require('dotenv').config();
+var expressValidator = require('express-validator');
 const express = require('express');
 const router = require('./routes');
 const cors = require('cors');
@@ -19,6 +20,8 @@ const app = express();
 app.use(cors());
 
 app.use(morgan('dev'));
+
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
