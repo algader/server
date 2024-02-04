@@ -66,7 +66,7 @@ exports.uploadUserPhoto = async (req, res) => {
     try{
         const uploadPhoto = await models.User.update(
             {
-            img_uri: url + '/public/images/' + req.file.filename
+            img_uri:   '/public/images/' + req.file.filename
             },
             {where: {id: req.currentUser.id}}
         )

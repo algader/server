@@ -32,7 +32,7 @@ app.use('*/images', express.static(__dirname + '/public/images'))
 app.use('/', router);
             
 
-db.sync({ force: true }).then(() => {
+db.sync({ alter: true }).then(() => {
 
     app.listen(port, () => {
         
